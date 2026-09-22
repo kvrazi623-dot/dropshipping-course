@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DropLaunch Academy | Learn Dropshipping</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#07111f;
+    color:white;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(7,17,31,.95);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #203047;
+}
+
+.nav-container{
+    max-width:1150px;
+    margin:auto;
+    padding:18px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#39e6a5;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#c8d3e0;
+}
+
+.nav-links a:hover{
+    color:#39e6a5;
+}
+
+.menu{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:70px 20px;
+
+    background:
+    radial-gradient(circle at 20% 20%,#123d43,transparent 35%),
+    radial-gradient(circle at 80% 30%,#192a55,transparent 35%),
+    #07111f;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border:1px solid #39e6a5;
+    border-radius:30px;
+    color:#39e6a5;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,78px);
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#39e6a5;
+}
+
+.hero p{
+    color:#b6c2d0;
+    font-size:19px;
+    max-width:700px;
+    margin:auto;
+}
+
+.buttons{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 25px;
+    border-radius:10px;
+    font-weight:bold;
+    transition:.3s;
+    cursor:pointer;
+    border:none;
+}
+
+.primary{
+    background:#39e6a5;
+    color:#04110c;
+}
+
+.primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(57,230,165,.25);
+}
+
+.secondary{
+    border:1px solid #33445c;
+    color:white;
+}
+
+.secondary:hover{
+    background:#142338;
+}
+
+/* GENERAL */
+
+section{
+    padding:80px 20px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title h2{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#9eacbd;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:-45px;
+    position:relative;
+}
+
+.stat{
+    background:#0d1a2b;
+    border:1px solid #203047;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.stat h3{
+    color:#39e6a5;
+    font-size:30px;
+}
+
+.stat p{
+    color:#9eacbd;
+}
+
+/* LEARN */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#0d1a2b;
+    border:1px solid #203047;
+    border-radius:18px;
+    padding:25px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#39e6a5;
+}
+
+.icon{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#9eacbd;
+}
+
+/* CURRICULUM */
+
+.curriculum{
+    display:grid;
+    gap:15px;
+}
+
+.lesson{
+    background:#0d1a2b;
+    border:1px solid #203047;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.lesson-header{
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+}
+
+.lesson-header:hover{
+    background:#112239;
+}
+
+.lesson-info{
+    display:flex;
+    gap:15px;
+    align-items:center;
+}
+
+.day{
+    background:#39e6a5;
+    color:#04110c;
+    padding:8px 12px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.lesson-content{
+    display:none;
+    padding:0 20px 20px 75px;
+    color:#9eacbd;
+}
+
+.lesson.active .lesson-content{
+    display:block;
+}
+
+/* COURSE */
+
+.course-box{
+    max-width:700px;
+    margin:auto;
+    background:linear-gradient(145deg,#0d1f31,#0a1727);
+    border:1px solid #2d415b;
+    border-radius:25px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 20px 70px rgba(0,0,0,.25);
+}
+
+.price{
+    font-size:52px;
+    font-weight:bold;
+    margin:15px 0;
+    color:#39e6a5;
+}
+
+.course-box ul{
+    list-style:none;
+    text-align:left;
+    margin:25px 0;
+}
+
+.course-box li{
+    padding:9px 0;
+    color:#c5d0dc;
+}
+
+/* CONTACT */
+
+.contact-box{
+    max-width:700px;
+    margin:auto;
+    background:#0d1a2b;
+    border:1px solid #203047;
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+}
+
+.contact-box h3{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.phone{
+    display:block;
+    margin:15px 0;
+    color:#39e6a5;
+    font-size:24px;
+    font-weight:bold;
+}
+
+/* CALCULATOR */
+
+.calculator{
+    max-width:600px;
+    margin:auto;
+    background:#0d1a2b;
+    padding:30px;
+    border-radius:20px;
+    border:1px solid #203047;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:7px;
+    color:#cbd6e2;
+}
+
+.input-group input{
+    width:100%;
+    padding:13px;
+    background:#07111f;
+    border:1px solid #30435d;
+    color:white;
+    border-radius:9px;
+    outline:none;
+}
+
+.result{
+    margin-top:20px;
+    padding:20px;
+    border-radius:12px;
+    background:#10283a;
+    text-align:center;
+}
+
+.result h3{
+    color:#39e6a5;
+    font-size:28px;
+}
+
+/* FAQ */
+
+.faq{
+    max-width:800px;
+    margin:auto;
+}
+
+.faq-item{
+    border-bottom:1px solid #26384f;
+}
+
+.faq-question{
+    padding:20px 5px;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+}
+
+.faq-answer{
+    display:none;
+    padding:0 5px 20px;
+    color:#9eacbd;
+}
+
+.faq-item.active .faq-answer{
+    display:block;
+}
+
+/* CTA */
+
+.cta{
+    text-align:center;
+    background:
+    radial-gradient(circle,#123d43,transparent 50%),
+    #07111f;
+}
+
+.cta h2{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#aebbc9;
+    max-width:650px;
+    margin:auto;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #203047;
+    padding:35px 20px;
+    text-align:center;
+    color:#7f8da0;
+}
+
+.footer-logo{
+    font-size:23px;
+    font-weight:bold;
+    color:white;
+    margin-bottom:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:65px;
+        left:0;
+        width:100%;
+        background:#07111f;
+        flex-direction:column;
+        padding:20px;
+        border-bottom:1px solid #203047;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+        margin-top:0;
+        padding-top:30px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .lesson-content{
+        padding-left:20px;
+    }
+}
+
+@media(max-width:500px){
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .course-box{
+        padding:25px;
+    }
+
+    .phone{
+        font-size:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<div class="nav-container">
+
+<div class="logo">
+Drop<span>Launch</span>
+</div>
+
+<ul class="nav-links" id="navLinks">
+
+<li><a href="#home">Home</a></li>
+<li><a href="#learn">Learn</a></li>
+<li><a href="#course">Course</a></li>
+<li><a href="#calculator">Calculator</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#faq">FAQ</a></li>
+
+</ul>
+
+<div class="menu" onclick="toggleMenu()">☰</div>
+
+</div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="badge">
+🚀 Beginner-Friendly Dropshipping Course
+</div>
+
+<h1>
+Learn Dropshipping.<br>
+Build Your <span>Online Business.</span>
+</h1>
+
+<p>
+A simple step-by-step course that teaches you how
+dropshipping works, how to research products, build
+a store, market products and understand your numbers.
+</p>
+
+<div class="buttons">
+
+<a href="#course" class="btn primary">
+Start Learning →
+</a>
+
+<a href="#learn" class="btn secondary">
+Explore Course
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STATS -->
+
+<div class="container">
+
+<div class="stats">
+
+<div class="stat">
+<h3>10+</h3>
+<p>Lessons</p>
+</div>
+
+<div class="stat">
+<h3>5+</h3>
+<p>Business Skills</p>
+</div>
+
+<div class="stat">
+<h3>100%</h3>
+<p>Beginner Friendly</p>
+</div>
+
+<div class="stat">
+<h3>∞</h3>
+<p>Learning Potential</p>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- WHAT YOU LEARN -->
+
+<section id="learn">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>What You'll Learn</h2>
+
+<p>
+Everything you need to understand the basics of dropshipping.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🛍️</div>
+<h3>Product Research</h3>
+<p>
+Learn how to evaluate product ideas, demand,
+competition and potential customers.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🌐</div>
+<h3>Build Your Store</h3>
+<p>
+Understand the important parts of an online
+store and how customers move through it.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📣</div>
+<h3>Marketing Basics</h3>
+<p>
+Learn the fundamentals of content, social media
+and advertising for online businesses.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">💰</div>
+<h3>Understand Profit</h3>
+<p>
+Learn revenue, costs, fees, margins and how
+to calculate whether an idea makes sense.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📦</div>
+<h3>Orders & Suppliers</h3>
+<p>
+Understand the basic relationship between
+customers, suppliers and order fulfillment.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📈</div>
+<h3>Business Growth</h3>
+<p>
+Learn how businesses test ideas, measure results
+and improve over time.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CURRICULUM -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Course Curriculum</h2>
+
+<p>Learn one step at a time.</p>
+
+</div>
+
+<div class="curriculum">
+
+<div class="lesson active">
+
+<div class="lesson-header" onclick="toggleLesson(this)">
+
+<div class="lesson-info">
+
+<span class="day">01</span>
+
+<div>
+<strong>Introduction to Dropshipping</strong>
+<br>
+<small>Understand the business model</small>
+</div>
+
+</div>
+
+<span>⌄</span>
+
+</div>
+
+<div class="lesson-content">
+
+<p>
+What is dropshipping? How does the order process work?
+Learn the basic terminology and understand the advantages
+and limitations of the model.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="lesson">
+
+<div class="lesson-header" onclick="toggleLesson(this)">
+
+<div class="lesson-info">
+
+<span class="day">02</span>
+
+<div>
+<strong>Product Research</strong>
+<br>
+<small>Finding and evaluating products</small>
+</div>
+
+</div>
+
+<span>⌄</span>
+
+</div>
+
+<div class="lesson-content">
+
+<p>
+Learn how to research product ideas and evaluate demand,
+competition, customer problems and potential margins.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="lesson">
+
+<div class="lesson-header" onclick="toggleLesson(this)">
+
+<div class="lesson-info">
+
+<span class="day">03</span>
+
+<div>
+<strong>Store Basics</strong>
+<br>
+<small>Creating a trustworthy store</small>
+</div>
+
+</div>
+
+<span>⌄</span>
+
+</div>
+
+<div class="lesson-content">
+
+<p>
+Learn the essential pages, product descriptions, images,
+navigation and trust elements an online store needs.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="lesson">
+
+<div class="lesson-header" onclick="toggleLesson(this)">
+
+<div class="lesson-info">
+
+<span class="day">04</span>
+
+<div>
+<strong>Marketing Fundamentals</strong>
+<br>
+<small>Getting your product noticed</small>
+</div>
+
+</div>
+
+<span>⌄</span>
+
+</div>
+
+<div class="lesson-content">
+
+<p>
+Explore content marketing, social media, basic advertising
+concepts and how to measure customer response.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="lesson">
+
+<div class="lesson-header" onclick="toggleLesson(this)">
+
+<div class="lesson-info">
+
+<span class="day">05</span>
+
+<div>
+<strong>Orders & Customer Experience</strong>
+<br>
+<small>Managing the customer journey</small>
+</div>
+
+</div>
+
+<span>⌄</span>
+
+</div>
+
+<div class="lesson-content">
+
+<p>
+Understand order processing, communication, customer
+support and common problems that online sellers face.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="lesson">
+
+<div class="lesson-header" onclick="toggleLesson(this)">
+
+<div class="lesson-info">
+
+<span class="day">06</span>
+
+<div>
+<strong>Profit & Business Numbers</strong>
+<br>
+<small>Know your numbers</small>
+</div>
+
+</div>
+
+<span>⌄</span>
+
+</div>
+
+<div class="lesson-content">
+
+<p>
+Learn how to calculate revenue, costs, fees, gross profit
+and basic profit margins.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- COURSE -->
+
+<section id="course">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Join the Course</h2>
+
+<p>Start learning at your own pace.</p>
+
+</div>
+
+<div class="course-box">
+
+<div class="badge">
+FULL COURSE
+</div>
+
+<h2>DropLaunch Beginner Course</h2>
+
+<p>
+Step-by-step dropshipping education for beginners.
+</p>
+
+<div class="price">
+₹299
+</div>
+
+<p>One-time course access</p>
+
+<ul>
+
+<li>✅ Complete beginner curriculum</li>
+<li>✅ Product research lessons</li>
+<li>✅ Store-building guidance</li>
+<li>✅ Marketing fundamentals</li>
+<li>✅ Profit calculator</li>
+<li>✅ Learning resources</li>
+
+</ul>
+
+<!-- BUY COURSE - WHATSAPP -->
+
+<a
+href="https://wa.me/919544104697?text=Hello%20I%20am%20interested%20in%20your%20Dropshipping%20Course%20for%20%E2%82%B9299.%20Please%20send%20me%20the%20details."
+class="btn primary"
+target="_blank">
+
+🚀 Buy Course - ₹299
+
+</a>
+
+<br><br>
+
+<p>
+📞 95441 04697
+<br>
+📞 98463 09147
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CALCULATOR -->
+
+<section id="calculator">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Profit Calculator</h2>
+
+<p>Use this simple calculator to understand your numbers.</p>
+
+</div>
+
+<div class="calculator">
+
+<div class="input-group">
+
+<label>Selling Price (₹)</label>
+
+<input
+type="number"
+id="sellingPrice"
+value="1000"
+>
+
+</div>
+
+<div class="input-group">
+
+<label>Product Cost (₹)</label>
+
+<input
+type="number"
+id="productCost"
+value="500"
+>
+
+</div>
+
+<div class="input-group">
+
+<label>Other Costs (₹)</label>
+
+<input
+type="number"
+id="otherCost"
+value="100"
+>
+
+</div>
+
+<button
+class="btn primary"
+onclick="calculateProfit()"
+>
+Calculate
+</button>
+
+<div class="result">
+
+<p>Estimated Profit</p>
+
+<h3 id="profit">
+₹400
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Contact Us</h2>
+
+<p>Have questions about the course?</p>
+
+</div>
+
+<div class="contact-box">
+
+<h3>📞 Course Support</h3>
+
+<p>
+Contact us on WhatsApp for course details and enrollment.
+</p>
+
+<br>
+
+<a
+class="phone"
+href="tel:+919544104697">
+📞 95441 04697
+</a>
+
+<a
+href="https://wa.me/919544104697?text=Hello%20I%20want%20to%20know%20more%20about%20the%20Dropshipping%20Course."
+class="btn primary"
+target="_blank">
+💬 WhatsApp 95441 04697
+</a>
+
+<br><br>
+
+<a
+class="phone"
+href="tel:+919846309147">
+📞 98463 09147
+</a>
+
+<a
+href="https://wa.me/919846309147?text=Hello%20I%20want%20to%20know%20more%20about%20the%20Dropshipping%20Course."
+class="btn primary"
+target="_blank">
+💬 WhatsApp 98463 09147
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section id="faq">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Frequently Asked Questions</h2>
+
+<p>Some common beginner questions.</p>
+
+</div>
+
+<div class="faq">
+
+<div class="faq-item">
+
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>Do I need previous business experience?</span>
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+No. The course is designed to explain the basics step by step.
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>Does the course guarantee profit?</span>
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+No. Business results depend on many factors. The course focuses
+on learning the fundamentals and making informed decisions.
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>Can I learn using a phone?</span>
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+Yes. The website is designed to work on phones, tablets and computers.
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>How do I access the course?</span>
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+Contact us on WhatsApp after purchasing to receive the course access details.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>Ready to Start Learning?</h2>
+
+<p>
+Learn the fundamentals, test your ideas and build your business knowledge step by step.
+</p>
+
+<div class="buttons">
+
+<a
+href="https://wa.me/919544104697?text=Hello%20I%20want%20to%20join%20the%20Dropshipping%20Course%20for%20%E2%82%B9299."
+class="btn primary"
+target="_blank">
+
+Get the Course 🚀
+
+</a>
+
+</div>
+
+<br>
+
+<p>
+📞 95441 04697 &nbsp; | &nbsp; 📞 98463 09147
+</p>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-logo">
+DropLaunch
+</div>
+
+<p>
+📞 95441 04697 &nbsp; | &nbsp; 📞 98463 09147
+</p>
+
+<p>
+© 2026 DropLaunch Academy. All rights reserved.
+</p>
+
+<p>
+Educational content only. No guaranteed income or profit.
+</p>
+
+</footer>
+
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList
+    .toggle("show");
+
+}
+
+
+/* CURRICULUM */
+
+function toggleLesson(element){
+
+    const lesson =
+    element.parentElement;
+
+    lesson.classList.toggle("active");
+
+}
+
+
+/* FAQ */
+
+function toggleFaq(element){
+
+    const item =
+    element.parentElement;
+
+    item.classList.toggle("active");
+
+}
+
+
+/* PROFIT CALCULATOR */
+
+function calculateProfit(){
+
+    const selling =
+    Number(document.getElementById("sellingPrice").value);
+
+    const product =
+    Number(document.getElementById("productCost").value);
+
+    const other =
+    Number(document.getElementById("otherCost").value);
+
+    const profit =
+    selling - product - other;
+
+    document.getElementById("profit").innerText =
+    "₹" + profit.toLocaleString("en-IN");
+
+}
+
+</script>
+
+</body>
+</html>
